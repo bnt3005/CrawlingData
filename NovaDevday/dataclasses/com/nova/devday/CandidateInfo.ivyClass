@@ -1,0 +1,18 @@
+CandidateInfo #class
+com.nova.devday #namespace
+name String #field
+name PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier
+skype String #field
+skype PERSISTENT #fieldModifier
+phone String #field
+phone PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier
+profileLink String #field
+profileLink PERSISTENT #fieldModifier
+expectingSalary String #field
+expectingSalary PERSISTENT #fieldModifier
+experienceYearNb Integer #field
+experienceYearNb PERSISTENT #fieldModifier
