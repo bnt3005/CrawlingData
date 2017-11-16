@@ -14,6 +14,6 @@ public class CrawlingPersistentService {
 		}
 		
 		public List<CandidateInfo> getCandidateInfoList(){
-			return Ivy.repo().search(CandidateInfo.class).execute().getAll();
+			return Ivy.repo().search(CandidateInfo.class).limit(10000).execute().getAll();
 		}
 }
