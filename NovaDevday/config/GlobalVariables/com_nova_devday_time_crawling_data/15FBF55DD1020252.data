@@ -1,1 +1,1 @@
-{/value "18"/description "value: 0  -> 23\nEx: 3 means 3 AM\n     15 means 3 PM"/environments * }
+{/value "9:00"/description "value: 0  -> 23\nEx: 3:30 means 3:30 AM\n     15:30 means 3:30 PM"/environments * }
