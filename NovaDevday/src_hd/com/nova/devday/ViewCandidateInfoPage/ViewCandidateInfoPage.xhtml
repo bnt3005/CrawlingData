@@ -19,12 +19,13 @@
 						<p:fileDownload value="#{data.excelFileStreamContent}" />
 					</p:commandButton>
 				</h:panelGroup>
-				<p:dataTable value="#{data.candidateInfos}" var="candidate"
+				<p:dataTable value="#{data.candidateInfos}" var="candidate" widgetVar="candidate"
 					rows="10" paginator="true"
-					stickyHeader="true"
 					paginatorPosition="bottom"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15" rowIndexVar="rowIndex" >
+					rowsPerPageTemplate="5,10,15" rowIndexVar="rowIndex"
+					reflow="true" >
+					
 					<p:column style="width: 50px" headerText="No." >
 						<h:outputText value="#{rowIndex + 1}" />
 					</p:column>
