@@ -27,14 +27,14 @@ public class CronJobService {
 			int currentMinute = calendar.get(Calendar.MINUTE);
 
 			String[] daysRunCrawling = Ivy.var().get(DAY_CRAWLING_DATA).trim().split(COMMA);
-			String[] timeRunCrawling = Ivy.var().get(TIME_CRAWLING_DATA).trim().split(COLON);
+			String[] timesRunCrawling = Ivy.var().get(TIME_CRAWLING_DATA).trim().split(COMMA);
 
 			if (daysRunCrawling.length == 1 && daysRunCrawling[0].equalsIgnoreCase(EVERY_DAY)) {
-				return checkTimeRunCrawlingData(currentHour, currentMinute, timeRunCrawling);
+				return checkTimeRunCrawlingData(currentHour, currentMinute, timesRunCrawling);
 			} else {
 				for (String dayDownload : daysRunCrawling) {
 					if (String.valueOf(currentDay).equalsIgnoreCase(dayDownload.trim())) {
-						return checkTimeRunCrawlingData(currentHour, currentMinute, timeRunCrawling);
+						return checkTimeRunCrawlingData(currentHour, currentMinute, timesRunCrawling);
 					}
 				}
 			}
@@ -44,11 +44,17 @@ public class CronJobService {
 		return Boolean.FALSE;
 	}
 
-	private boolean checkTimeRunCrawlingData(int currentHour, int currentMinute, String[] timeRunCrawling) {
-		if (String.valueOf(currentHour).equalsIgnoreCase(timeRunCrawling[0])
-				&& currentMinute == Integer.parseInt(timeRunCrawling[1])) {
-			return Boolean.TRUE;
+	private boolean checkTimeRunCrawlingData(int currentHour, int currentMinute, String[] timesRunCrawling) {
+		for (String each : timesRunCrawling) {
+			String[] timeRunCrawling = each.trim().split(COLON);
+			if (String.valueOf(currentHour).equalsIgnoreCase(timeRunCrawling[0]) && currentMinute == Integer.parseInt(timeRunCrawling[1])) {
+				return Boolean.TRUE;
+			}
 		}
 		return Boolean.FALSE;
+	}
+
+	public boolean runCrawlingDataForDemo() {
+		return Boolean.TRUE;
 	}
 }
