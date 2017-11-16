@@ -1,4 +1,2 @@
 Data #class
 com.nova.devday #namespace
-isCrawlingTime Boolean #field
-isCrawlingTime PERSISTENT #fieldModifier
