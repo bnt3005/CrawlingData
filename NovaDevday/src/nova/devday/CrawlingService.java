@@ -69,11 +69,18 @@ public class CrawlingService {
 				Document employeePage = connectWebServer(login, SERVER_HOST + employeeLink.attr("href"));
 				candidateInfo.setUpdatedDate(getUpdatedDate(employeePage));
 				candidateInfo.setContactLink(getContactLink(employeePage));
+				candidateInfo.setImageLink(getImageLink(employeePage));
 				crawlCandidateInfo(candidateInfo, employeePage);
 				Ivy.log().info(candidateInfo);
 				crawlingPersistentService.addCandidate(candidateInfo);
 			}
 		}
+	}
+
+	private static String getImageLink(Document employeePage) {
+		Elements imagePanel = employeePage.select("div[class=m-b-sm m-t-lg text-center");
+		Elements imageImgTab = imagePanel.select("img");
+		return imageImgTab.attr("src");
 	}
 
 	private static void crawlCandidateInfo(CandidateInfo candidateInfo, Document employeePage) {
