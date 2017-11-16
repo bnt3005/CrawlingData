@@ -12,5 +12,7 @@
 	<classpathentry kind="con" path="ULC_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="lib" path="lib/jsoup-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/aspose/aspose-cells-8.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/ivyThirdPartyLicenses-1.0.0.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

@@ -12,6 +12,13 @@
 		<ui:define name="content">
 			<h:form id="viewCandidateInfoForm">
 				<h3>View Candidate Info</h3>
+				<h:panelGroup layout="block" styleClass="export-excel">
+					<p:commandButton
+						value="Export Excel File"
+						actionListener="#{logic.downloadExcelFile}" ajax="false">
+						<p:fileDownload value="#{data.excelFileStreamContent}" />
+					</p:commandButton>
+				</h:panelGroup>
 				<p:dataTable value="#{data.candidateInfos}" var="candidate"
 					rows="10" paginator="true"
 					stickyHeader="true"

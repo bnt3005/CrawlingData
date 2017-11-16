@@ -2,3 +2,5 @@ ViewCandidateInfoPageData #class
 com.nova.devday.ViewCandidateInfoPage #namespace
 candidateInfos java.util.List<com.nova.devday.CandidateInfo> #field
 candidateInfos PERSISTENT #fieldModifier
+excelFileStreamContent org.primefaces.model.StreamedContent #field
+excelFileStreamContent PERSISTENT #fieldModifier
