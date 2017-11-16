@@ -24,18 +24,24 @@
 					stickyHeader="true"
 					paginatorPosition="bottom"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,15" >
-					<p:column headerText="Current Position">
-						<h:outputText value="Java" />
+					rowsPerPageTemplate="5,10,15" rowIndexVar="rowIndex" >
+					<p:column style="width: 50px" headerText="No." >
+						<h:outputText value="#{rowIndex + 1}" />
 					</p:column>
-					<p:column headerText="Expected Salary">
-						<h:outputText value="#{candidate.minimumExpectedSalary} USD" />
+					<p:column headerText="Current Position" filterBy="#{candidate.mostRecentJob}" filterMatchMode="contains" >
+						<h:outputText value="#{candidate.mostRecentJob}" />
 					</p:column>
-					<p:column headerText="Experience">
-						<h:outputText value="#{candidate.yearsOfExperience} years" />
+					<p:column headerText="Expected Salary" >
+						<h:outputText value="#{candidate.minimumExpectedSalary == '' ? 'Negotiable' : candidate.minimumExpectedSalary}" />
 					</p:column>
-					<p:column headerText="Working place">
-						<h:outputText value="HCMC" />
+					<p:column headerText="Experience" >
+						<h:outputText value="#{candidate.yearsOfExperience}" />
+					</p:column>
+					<p:column headerText="Working place" filterBy="#{candidate.jobLocations}" filterMatchMode="contains" >
+						<h:outputText value="#{candidate.jobLocations}" />
+					</p:column>
+					<p:column headerText="Update date">
+						<h:outputText value="#{candidate.updatedDate}" />
 					</p:column>
 					<p:column headerText="">
 						<h:outputLink target="_blank" value="#{candidate.profileLink}">
