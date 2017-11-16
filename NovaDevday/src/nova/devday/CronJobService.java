@@ -28,7 +28,6 @@ public class CronJobService {
 
 			String[] daysRunCrawling = Ivy.var().get(DAY_CRAWLING_DATA).trim().split(COMMA);
 			String[] timeRunCrawling = Ivy.var().get(TIME_CRAWLING_DATA).trim().split(COLON);
-			Ivy.log().info(Integer.parseInt(timeRunCrawling[1]));
 
 			if (daysRunCrawling.length == 1 && daysRunCrawling[0].equalsIgnoreCase(EVERY_DAY)) {
 				return checkTimeRunCrawlingData(currentHour, currentMinute, timeRunCrawling);
