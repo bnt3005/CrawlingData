@@ -10,8 +10,7 @@ public class CrawlingPersistentService {
 
 		
 		public CandidateInfo addCandidate(CandidateInfo candidateInfo){
-			candidateInfo = Ivy.persistence().get("nova_candidate_crawling").persist(candidateInfo);
-			return candidateInfo;
+			return Ivy.persistence().get("nova_candidate_crawling").persist(candidateInfo);
 		}
 		
 		public List<CandidateInfo> getCandidateInfoList(){
