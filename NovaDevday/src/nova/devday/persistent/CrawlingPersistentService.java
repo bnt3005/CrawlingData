@@ -8,13 +8,12 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 public class CrawlingPersistentService {
 		
-		private static final String PERSISTENT_NAME = "nova_candidate_crawling";
 
-		public CandidateInfo addCandidate(CandidateInfo candidateInfo){
-			return Ivy.persistence().get(PERSISTENT_NAME).persist(candidateInfo);
+		public String addCandidate(CandidateInfo candidateInfo){
+			return Ivy.repo().save(candidateInfo).getId();
 		}
 		
 		public List<CandidateInfo> getCandidateInfoList(){
-			return Ivy.persistence().get(PERSISTENT_NAME).findAll(CandidateInfo.class);
+			return Ivy.repo().search(CandidateInfo.class).execute().getAll();
 		}
 }

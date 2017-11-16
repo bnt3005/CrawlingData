@@ -1,13 +1,18 @@
 package nova.devday;
 
 import java.io.IOException;
+
+import nova.devday.persistent.CrawlingPersistentService;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.Connection.Method;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.nova.devday.CandidateInfo;
+
 import ch.ivyteam.ivy.environment.Ivy;
 
 public class CrawlingService {
@@ -19,7 +24,8 @@ public class CrawlingService {
 	private static final String LOGIN_FORM = SERVER_HOST + "/v2/login_check";
 	private static final String LOGIN_LINK = SERVER_HOST + "/v2/login";
 	private static final String QUERY_STRING = SERVER_HOST + "/v2/resume/search?searchResume%5Bkeyword%5D=java&searchResume%5BjobLevelId%5D=&searchResume%5BlastModified%5D=3&btnResumeSearch=1&searchResume%5ByearExperience%5D=&searchResume%5Bnationality%5D=&searchResume%5Blanguage%5D=&searchResume%5BlanguageLevel%5D=&searchResume%5BageFrom%5D=&searchResume%5BageTo%5D=&searchResume%5BsalaryFrom%5D=&searchResume%5BsalaryTo%5D=&searchResume%5BgenderId%5D=";
-
+	static CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
+	
 	public static void crawlData() throws IOException {
 		Connection.Response initial = Jsoup.connect(LOGIN_LINK).method(Connection.Method.GET).execute();
 
@@ -67,6 +73,7 @@ public class CrawlingService {
 					infoNo++;
 				}
 				Ivy.log().info(candidateInfo);
+				crawlingPersistentService.addCandidate(candidateInfo);
 			}
 		}
 	}

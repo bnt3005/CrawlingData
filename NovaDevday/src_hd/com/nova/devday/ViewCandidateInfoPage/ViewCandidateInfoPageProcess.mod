@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 16 10:51:21 ICT 2017]
+[>Created: Thu Nov 16 13:44:02 ICT 2017]
 15FC28DA79159D3C 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 ViewCandidateInfoPageProcess Big #zClass
@@ -70,16 +70,13 @@ Vs0 f6 actionDecl 'com.nova.devday.ViewCandidateInfoPage.ViewCandidateInfoPageDa
 ' #txt
 Vs0 f6 actionTable 'out=in;
 ' #txt
-Vs0 f6 actionCode 'import java.util.ArrayList;
+Vs0 f6 actionCode 'import nova.devday.persistent.CrawlingPersistentService;
+import java.util.ArrayList;
 import com.nova.devday.CandidateInfo;
 
-in.candidateInfos = new ArrayList<CandidateInfo>();
-CandidateInfo candidateInfo = new CandidateInfo();
-candidateInfo.expectingSalary = "1000";
-candidateInfo.experienceYearNb = 5;
-candidateInfo.profileLink = "https://employer.vietnamworks.com/v2/resume/detail/437522";
-
-in.candidateInfos.add(candidateInfo);' #txt
+CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
+in.candidateInfos = crawlingPersistentService.getCandidateInfoList();
+' #txt
 Vs0 f6 type com.nova.devday.ViewCandidateInfoPage.ViewCandidateInfoPageData #txt
 Vs0 f6 168 42 112 44 0 -8 #rect
 Vs0 f6 @|StepIcon #fIcon

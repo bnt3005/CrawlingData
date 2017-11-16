@@ -32,7 +32,3 @@ jobIndustriesFunctions String #field
 jobIndustriesFunctions PERSISTENT #fieldModifier
 minimumExpectedSalary String #field
 minimumExpectedSalary PERSISTENT #fieldModifier
-expectingSalary String #field
-expectingSalary PERSISTENT #fieldModifier
-experienceYearNb Integer #field
-experienceYearNb PERSISTENT #fieldModifier
