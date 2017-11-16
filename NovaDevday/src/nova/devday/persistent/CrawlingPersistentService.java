@@ -14,7 +14,9 @@ public class CrawlingPersistentService {
 		
 		public List<CandidateInfo> getCandidateInfoList(){
 			List<CandidateInfo> list = Ivy.repo().search(CandidateInfo.class).limit(10000).execute().getAll();
-			list.sort((CandidateInfo a, CandidateInfo b) -> (int) (b.getUpdatedDate().getTime() - a.getUpdatedDate().getTime()) / 1000);
+			if(!list.isEmpty()){
+				list.sort((CandidateInfo a, CandidateInfo b) -> (int) (b.getUpdatedDate().getTime() - a.getUpdatedDate().getTime()) / 1000);
+			}
 			return list;
 		}
 }
