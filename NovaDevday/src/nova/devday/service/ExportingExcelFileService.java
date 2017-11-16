@@ -22,11 +22,13 @@ import com.nova.devday.CandidateInfo;
 
 import ch.ivyteam.ivy.ThirdPartyLicenses;
 import ch.ivyteam.ivy.environment.Ivy;
+import nova.devday.utils.DateUtils;
 
 public class ExportingExcelFileService {
 	private static final String XLSX_EXTENSION = "xlsx";
 	private static final String EXCEL_REPORT_DOWNLOAD_FILE_NAME = "Candidates";
 	private static final String EXCEL_FONT = "Calibri";
+	private static final String HYPHEN = "-";
 	private static final int FIRST_SHEET_INDEX = 0;
 	private static final int FIRST_COMLUMN_INDEX = 0;
 	private static final int FIRST_ROW_INDEX = 0;
@@ -60,20 +62,23 @@ public class ExportingExcelFileService {
 		for (CandidateInfo data : dataList) {
 			ArrayList<Object> importListForOneRow = new ArrayList<>();
 			// The order is important
-			importListForOneRow.add("-");
-			importListForOneRow.add(data.getMinimumExpectedSalary());
-			importListForOneRow.add(data.getYearsOfExperience());
-			importListForOneRow.add("-");
+			importListForOneRow.add(rowIndex);
+			importListForOneRow.add(data.getMostRecentJob() == null ? HYPHEN : data.getMostRecentJob());
+			importListForOneRow.add(data.getMinimumExpectedSalary() == null ? HYPHEN : data.getMinimumExpectedSalary());
+			importListForOneRow.add(data.getYearsOfExperience() == null ? HYPHEN : data.getYearsOfExperience());
+			importListForOneRow.add(data.getJobLocations()  == null ? HYPHEN : data.getJobLocations());
+			importListForOneRow.add(data.getUpdatedDate() == null ? HYPHEN : DateUtils.toStringByFormat(data.getUpdatedDate(), "dd.MM.yyyy"));
 			importListForOneRow.add(data.getProfileLink());
 			worksheet.getCells().importArrayList(importListForOneRow, rowIndex, FIRST_COMLUMN_INDEX, false);
 			rowIndex++;
 		}
 	}
-
+	
 	private static void setupDefaultSetting(Workbook workbook) {
 		Style style = workbook.createStyle();
 		style.getFont().setName(EXCEL_FONT);
 		style.getFont().setSize(EXCEL_FONT_SIZE);
+		style.setTextWrapped(true);
 		StyleFlag flag = new StyleFlag();
 		flag.setFontName(true);
 		flag.setFontSize(true);
@@ -84,8 +89,13 @@ public class ExportingExcelFileService {
 
 	private static void addTitle(Worksheet worksheet) {
 		ArrayList<String> titleList = new ArrayList<>(
-				Arrays.asList("Current Position", "Expected Salary", "Experience", 
-						"Working Place", "Profile Link"));
+				Arrays.asList("No.",
+						"Current Position", 
+						"Expected Salary", 
+						"Experience", 
+						"Working Place", 
+						"Update date",
+						"Profile Link"));
 		int columnIndex = 0;
 
 		for (String title : titleList) {
@@ -95,6 +105,7 @@ public class ExportingExcelFileService {
 			style.setBackgroundColor(Color.getGray());
 			style.setForegroundColor(Color.fromArgb(ARGB_GRAY_COLOR, ARGB_GRAY_COLOR, ARGB_GRAY_COLOR));
 			style.setPattern(BackgroundType.SOLID);
+			style.setTextWrapped(true);
 
 			Font font = style.getFont();
 			font.setBold(true);
