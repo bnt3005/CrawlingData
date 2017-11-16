@@ -32,3 +32,5 @@ jobIndustriesFunctions String #field
 jobIndustriesFunctions PERSISTENT #fieldModifier
 minimumExpectedSalary String #field
 minimumExpectedSalary PERSISTENT #fieldModifier
+updatedDate java.util.Date #field
+updatedDate PERSISTENT #fieldModifier
