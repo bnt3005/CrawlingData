@@ -1,4 +1,4 @@
 Data #class
 com.nova.devday #namespace
-email com.nova.devday.Email #field
-email PERSISTENT #fieldModifier
+crawlingEmail com.nova.devday.CrawlingEmail #field
+crawlingEmail PERSISTENT #fieldModifier
