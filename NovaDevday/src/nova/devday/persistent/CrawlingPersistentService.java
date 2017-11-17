@@ -25,4 +25,15 @@ public class CrawlingPersistentService {
 		public  void eraseDB(){
 			DiCore.getGlobalInjector().getInstance(BusinessDataPersistence.class).clearAll();
 		}
+		
+		public void saveOrUpdate(CandidateInfo candidateInfo) {
+			CandidateInfo existing = Ivy.repo()
+					.search(CandidateInfo.class)
+					.textField("candidateId").containsPhrase(candidateInfo.getCandidateId())
+					.limit(1).execute().getFirst();
+			if (existing != null){
+				Ivy.repo().delete(existing);
+			}
+			Ivy.repo().save(candidateInfo);
+		}
 }

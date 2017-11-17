@@ -74,7 +74,8 @@ public class TestService {
 				candidateInfo.setContactLink(getContactLink(employeePage));
 				candidateInfo.setImageLink(getImageLink(employeePage));
 				crawlCandidateInfo(candidateInfo, employeePage);
-				crawlingPersistentService.addCandidate(candidateInfo);
+				Ivy.log().info(candidateInfo);
+				crawlingPersistentService.saveOrUpdate(candidateInfo);
 //				break;
 			}
 		}
