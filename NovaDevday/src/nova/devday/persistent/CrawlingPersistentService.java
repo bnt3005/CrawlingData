@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.nova.devday.CandidateInfo;
 
+import ch.ivyteam.di.restricted.DiCore;
+import ch.ivyteam.ivy.business.data.store.restricted.BusinessDataPersistence;
 import ch.ivyteam.ivy.environment.Ivy;
 
 public class CrawlingPersistentService {
@@ -18,5 +20,9 @@ public class CrawlingPersistentService {
 				list.sort((CandidateInfo a, CandidateInfo b) -> (int) (b.getUpdatedDate().getTime() - a.getUpdatedDate().getTime()) / 1000);
 			}
 			return list;
+		}
+		
+		public  void eraseDB(){
+			DiCore.getGlobalInjector().getInstance(BusinessDataPersistence.class).clearAll();
 		}
 }

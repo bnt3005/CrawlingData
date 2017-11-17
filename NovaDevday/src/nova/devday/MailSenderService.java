@@ -35,10 +35,9 @@ public class MailSenderService {
 		CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
 		List<CandidateInfo> candidateInfos = crawlingPersistentService.getCandidateInfoList();
 		StringBuilder mailContent = new StringBuilder();
-       for (int i = 0; i < 10; i++) {
+       for (int i = 0; i < candidateInfos.size(); i++) {
 		
 			CandidateInfo candidateInfo = candidateInfos.get(i);
-			
 			mailContent.append("===============<br>");
 			mailContent.append("Candicate " ).append(candidateInfo.getMostRecentJob()).append("<br>");
 			//mailContent.append()
