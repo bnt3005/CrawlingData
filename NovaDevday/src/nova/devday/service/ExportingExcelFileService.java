@@ -68,6 +68,13 @@ public class ExportingExcelFileService {
 			importListForOneRow.add(data.getYearsOfExperience() == null ? HYPHEN : data.getYearsOfExperience());
 			importListForOneRow.add(data.getJobLocations()  == null ? HYPHEN : data.getJobLocations());
 			importListForOneRow.add(data.getUpdatedDate() == null ? HYPHEN : DateUtils.toStringByFormat(data.getUpdatedDate(), "dd.MM.yyyy"));
+			importListForOneRow.add(data.getHighestEducation() == null ? HYPHEN : data.getHighestEducation());
+			importListForOneRow.add(data.getLanguages() == null ? HYPHEN : data.getLanguages());
+			importListForOneRow.add(data.getLatestCompany() == null ? HYPHEN : data.getLatestCompany());
+			importListForOneRow.add(data.getExperienceLevel() == null ? HYPHEN : data.getExperienceLevel());
+			importListForOneRow.add(data.getExpectedPosition() == null ? HYPHEN : data.getExpectedPosition());
+			importListForOneRow.add(data.getExpectedJobLevel() == null ? HYPHEN : data.getExpectedJobLevel());
+			importListForOneRow.add(data.getJobIndustriesFunctions() == null ? HYPHEN : data.getJobIndustriesFunctions());
 			importListForOneRow.add(data.getProfileLink());
 			worksheet.getCells().importArrayList(importListForOneRow, rowIndex, FIRST_COMLUMN_INDEX, false);
 			rowIndex++;
@@ -95,6 +102,13 @@ public class ExportingExcelFileService {
 						"Experience", 
 						"Working Place", 
 						"Update date",
+						"Highest Education",
+						"Languages",
+						"Latest Company",
+						"Experience Level",
+						"Expected Position",
+						"Expected Job Level",
+						"Job Industries/Functions",
 						"Profile Link"));
 		int columnIndex = 0;
 
