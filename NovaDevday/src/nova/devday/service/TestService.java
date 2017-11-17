@@ -29,12 +29,12 @@ public class TestService {
 	private static final String LOGIN_FORM = SERVER_HOST + "/v2/login_check";
 	private static final String LOGIN_LINK = SERVER_HOST + "/v2/login";
 //	private static final String QUERY_STRING = SERVER_HOST + "/v2/resume/search?searchResume%5Bkeyword%5D=java&searchResume%5BjobLevelId%5D=&searchResume%5BlastModified%5D=3&btnResumeSearch=1&searchResume%5ByearExperience%5D=&searchResume%5Bnationality%5D=&searchResume%5Blanguage%5D=&searchResume%5BlanguageLevel%5D=&searchResume%5BageFrom%5D=&searchResume%5BageTo%5D=&searchResume%5BsalaryFrom%5D=&searchResume%5BsalaryTo%5D=&searchResume%5BgenderId%5D=";
-	private static String QUERY_STRING = QueryService.buildQuery();
+//	private static
 	static CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
 	
 
 	public static void crawlData() throws IOException, ParseException {
-		Ivy.log().info("eee");
+		 String QUERY_STRING = QueryService.buildQuery();
 		Connection.Response login = initEnvironment();
 		// For page 1
 		crawlDataFromUrl(login, QUERY_STRING, 1);
@@ -45,7 +45,7 @@ public class TestService {
 		Integer pageNo = 1;
 		for (Element pagination : paginations) {
 			pageNo++;
-			crawlDataFromUrl(login, SERVER_HOST + pagination.attr("data-url"), pageNo);
+			//crawlDataFromUrl(login, SERVER_HOST + pagination.attr("data-url"), pageNo);
 		}
 	}
 
@@ -61,7 +61,6 @@ public class TestService {
 		Document pageContent = Jsoup.connect(url).cookies(login.cookies()).get();
 		Elements employeeLinks = pageContent.select("a[href]");
 		int candidateNo = 0;
-		Ivy.log().info("aaaaaa");
 		for (Element employeeLink : employeeLinks) {
 			if (employeeLink.attr("href").contains("resume/detail")) {
 				candidateNo++;
@@ -75,9 +74,8 @@ public class TestService {
 				candidateInfo.setContactLink(getContactLink(employeePage));
 				candidateInfo.setImageLink(getImageLink(employeePage));
 				crawlCandidateInfo(candidateInfo, employeePage);
-				Ivy.log().info(candidateInfo);
 				crawlingPersistentService.addCandidate(candidateInfo);
-				//break;
+//				break;
 			}
 		}
 	}
@@ -94,7 +92,7 @@ public class TestService {
 		for (Element row : infoTable.select("tr")) {
             Elements infoRows = row.select("td");
             for (Element infoRow : infoRows) {
-    			if(infoNo % 2 == 0 && infoRow.hasText()){
+    			if(infoNo % 2 == 0 ){
     				initCandidateInfo(infoNo, candidateInfo, infoRow.text());
     			}
     			infoNo++;
@@ -125,6 +123,11 @@ public class TestService {
 	}
 
 	private static void initCandidateInfo(Integer i, CandidateInfo candidateInfo, String info) {
+//		Ivy.log().warn("infooooooooo:"+info);
+		if(info==null||info.isEmpty() || info.contains("null")){
+			info ="N/A";
+		}
+		
 		switch (i) {
 		case 2:
 			candidateInfo.setHighestEducation(info);
@@ -151,6 +154,7 @@ public class TestService {
 			candidateInfo.setExpectedJobLevel(info);
 			break;
 		case 18:
+			
 			candidateInfo.setJobLocations(info);
 			break;
 		case 20:

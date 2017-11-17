@@ -29,10 +29,13 @@
 					<p:column style="width: 50px" headerText="No." >
 						<h:outputText value="#{rowIndex + 1}" />
 					</p:column>
+					<p:column style="width: 50px" headerText="image" >
+						<p:graphicImage style="width: 70px" value="#{candidate.imageLink}"></p:graphicImage>
+					</p:column>
 					<p:column headerText="Current Position" filterBy="#{candidate.mostRecentJob}" filterMatchMode="contains" >
 						<h:outputText id="currentPosition" value="#{candidate.mostRecentJob}" />
 						<p:tooltip for="currentPosition" >
-							<p:panelGrid columns="2">
+							<p:panelGrid layout="grid" columns="2">
 								<h:outputText value="Current Position:" />
 								<h:outputText value="#{candidate.mostRecentJob}" />
 								
@@ -68,7 +71,7 @@
 							</p:panelGrid>
 						</p:tooltip>
 					</p:column>
-					<p:column headerText="Expected Salary" >
+					<p:column headerText="Expected Salary" sortBy="#{candidate.minimumExpectedSalary}">
 						<h:outputText value="#{candidate.minimumExpectedSalary == '' ? 'Negotiable' : candidate.minimumExpectedSalary}" />
 					</p:column>
 					<p:column headerText="Experience" >
@@ -77,17 +80,17 @@
 					<p:column headerText="Working place" filterBy="#{candidate.jobLocations}" filterMatchMode="contains" >
 						<h:outputText value="#{candidate.jobLocations}" />
 					</p:column>
-					<p:column headerText="Update date">
+					<p:column headerText="Update date" sortBy="#{candidate.updatedDate}">
 						<h:outputText value="#{candidate.updatedDate}" />
 					</p:column>
 					<p:column headerText="">
 						<h:outputLink target="_blank" value="#{candidate.profileLink}">
-							<h:outputText value="Click here to see profile" />
+							<h:outputText value="View profile" />
 						</h:outputLink>
 					</p:column>
 					<p:column headerText="">
 						<h:outputLink target="_blank" value="#{candidate.contactLink}">
-							<h:outputText value="Click here to see contact (need money)" />
+							<h:outputText value="View contact (need money)" />
 						</h:outputLink>
 					</p:column>
 				</p:dataTable>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 17 10:46:15 ICT 2017]
+[>Created: Fri Nov 17 11:40:08 ICT 2017]
 15FBF01D998D2EFC 3.18 #module
 >Proto >Proto Collection #zClass
 sa0 startCrawlingData Big #zClass
@@ -58,12 +58,12 @@ testService.crawlData();
 //CrawlingService crawlingService = new CrawlingService();
 //crawlingService.crawlData();' #txt
 sa0 f3 type com.nova.devday.Data #txt
-sa0 f3 344 42 112 44 0 -8 #rect
+sa0 f3 232 50 112 44 0 -8 #rect
 sa0 f3 @|StepIcon #fIcon
 sa0 f4 expr out #txt
-sa0 f4 111 64 344 64 #arcP
+sa0 f4 110 64 232 72 #arcP
 sa0 f2 expr out #txt
-sa0 f2 456 64 597 64 #arcP
+sa0 f2 344 72 597 64 #arcP
 sa0 f5 outerBean "ch.ivyteam.ivy.process.eventstart.beans.AutoProcessStarterEventBean" #txt
 sa0 f5 beanConfig "3600" #txt
 sa0 f5 outLink eventLink.ivp #txt
@@ -94,8 +94,8 @@ sa0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-sa0 f10 415 209 400 86 #arcP
-sa0 f10 0 0.5 -15 2 #arcLabel
+sa0 f10 409 215 288 94 #arcP
+sa0 f10 0 0.5 -11 11 #arcLabel
 sa0 f6 expr out #txt
 sa0 f6 111 224 400 224 #arcP
 sa0 f7 expr in #txt
