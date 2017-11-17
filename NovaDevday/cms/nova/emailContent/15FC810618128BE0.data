@@ -1,8 +1,18 @@
-<div style="font-family: Arial, Tahoma, sans-serif, wf_segoe-ui_normal, Segoe UI, Segoe WP">
 <P>
-List of latest updated Candidate
+Hi HR Team
 </P>
 <P>
-<B>{content}</B>
+Here are some candidates just update CV:
 </P>
-</div>
+<P>
+<B>{content}</B> 
+</P>
+<P>
+Please click to this <A href="http://localhost:8081/ivy/pro/designer/NovaDevday/15FC2FE31081B441/startViewInfo.ivp">link</A> for more details. 
+</P>
+<P>
+Thanks,
+</P>
+<P>
+Nova Team.
+</P>
