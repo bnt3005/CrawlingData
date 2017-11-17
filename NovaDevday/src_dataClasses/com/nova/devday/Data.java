@@ -7,26 +7,26 @@ package com.nova.devday;
 public class Data extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 8710016148206406556L;
+  private static final long serialVersionUID = 5657864663136513537L;
 
-  private com.nova.devday.Email email;
+  private com.nova.devday.CrawlingEmail crawlingEmail;
 
   /**
-   * Gets the field email.
-   * @return the value of the field email; may be null.
+   * Gets the field crawlingEmail.
+   * @return the value of the field crawlingEmail; may be null.
    */
-  public com.nova.devday.Email getEmail()
+  public com.nova.devday.CrawlingEmail getCrawlingEmail()
   {
-    return email;
+    return crawlingEmail;
   }
 
   /**
-   * Sets the field email.
-   * @param _email the new value of the field email.
+   * Sets the field crawlingEmail.
+   * @param _crawlingEmail the new value of the field crawlingEmail.
    */
-  public void setEmail(com.nova.devday.Email _email)
+  public void setCrawlingEmail(com.nova.devday.CrawlingEmail _crawlingEmail)
   {
-    email = _email;
+    crawlingEmail = _crawlingEmail;
   }
 
 }

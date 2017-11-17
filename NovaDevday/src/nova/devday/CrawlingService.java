@@ -59,6 +59,7 @@ public class CrawlingService {
 		Document pageContent = Jsoup.connect(url).cookies(login.cookies()).get();
 		Elements employeeLinks = pageContent.select("a[href]");
 		int candidateNo = 0;
+		Ivy.log().debug(employeeLinks);
 		for (Element employeeLink : employeeLinks) {
 			if (employeeLink.attr("href").contains("resume/detail")) {
 				candidateNo++;
