@@ -1,25 +1,23 @@
 package nova.devday;
 
-import java.util.List;
-
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.process.model.value.SignalCode;
+
+import com.nova.devday.Email;
 
 public class MailSenderService {
 	
 	private String SENDER_MAIL = Ivy.var().get("com_nova_devday_sender_email");
 	private String RECEIVER_MAIL = Ivy.var().get("com_nova_devday_receiver_email");
-	public static final String NOVA_PACKAGE = "ch:axonivy:fintech:soba";
-	public static final String SIGNAL_CODE_SEDNING_EMAIL = NOVA_PACKAGE +":sendingEmail";
-
+	private String EMAIL_SUBJECT = Ivy.cms().co("/nova/crawlingEmailSubject");
+	private String EMAIL_CONTENT = Ivy.cms().co("/nova/emailContent");
 	
-	public void sendMail()
+	public void buildEmailObject()
 	{
-		String[] listSendEmail = RECEIVER_MAIL.trim().split(",");
-		for(String email: listSendEmail)
-		{
-			Ivy.wf().signals().send(new SignalCode(SIGNAL_CODE_SEDNING_EMAIL), email);
-		}
+		Email email = new Email();
+		email.setSubject(EMAIL_SUBJECT);
+		email.setFrom(SENDER_MAIL);
+		email.setTo(RECEIVER_MAIL);
+		email.setContent(EMAIL_CONTENT);
 	}
 
 }

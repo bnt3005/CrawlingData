@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 16 18:20:18 ICT 2017]
-15FBF01D998D2EFC 3.18 #module
+15FBF01D998D2EFC 3.20 #module
 >Proto >Proto Collection #zClass
 sa0 startCrawlingData Big #zClass
 sa0 B #cInfo
@@ -22,9 +21,11 @@ sa0 @Alternative f8 '' #zField
 sa0 @PushWFArc f10 '' #zField
 sa0 @PushWFArc f6 '' #zField
 sa0 @PushWFArc f7 '' #zField
-sa0 @CallSub f9 '' #zField
+sa0 @EMail f2 '' #zField
 sa0 @PushWFArc f11 '' #zField
-sa0 @PushWFArc f2 '' #zField
+sa0 @GridStep f12 '' #zField
+sa0 @PushWFArc f13 '' #zField
+sa0 @PushWFArc f9 '' #zField
 >Proto sa0 sa0 startCrawlingData #zField
 sa0 f0 outLink start.ivp #txt
 sa0 f0 type com.nova.devday.Data #txt
@@ -46,7 +47,7 @@ sa0 f0 @C|.responsibility Everybody #txt
 sa0 f0 81 49 30 30 -21 17 #rect
 sa0 f0 @|StartRequestIcon #fIcon
 sa0 f1 type com.nova.devday.Data #txt
-sa0 f1 969 49 30 30 0 15 #rect
+sa0 f1 977 49 30 30 0 15 #rect
 sa0 f1 @|EndIcon #fIcon
 sa0 f3 actionDecl 'com.nova.devday.Data out;
 ' #txt
@@ -56,7 +57,16 @@ sa0 f3 actionCode 'import nova.devday.CrawlingService;
 CrawlingService crawlingService = new CrawlingService();
 crawlingService.crawlData();' #txt
 sa0 f3 type com.nova.devday.Data #txt
-sa0 f3 360 40 112 48 0 -8 #rect
+sa0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Crawling Data</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+sa0 f3 360 42 112 44 -39 -8 #rect
 sa0 f3 @|StepIcon #fIcon
 sa0 f4 expr out #txt
 sa0 f4 111 64 360 64 #arcP
@@ -90,7 +100,7 @@ sa0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-sa0 f10 416 208 416 88 #arcP
+sa0 f10 416 208 416 86 #arcP
 sa0 f10 0 0.5 -15 0 #arcLabel
 sa0 f6 expr out #txt
 sa0 f6 111 224 400 224 #arcP
@@ -104,32 +114,47 @@ sa0 f7 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-sa0 f7 428 220 969 68 #arcP
+sa0 f7 429 221 977 68 #arcP
 sa0 f7 0 0.4437803002277993 -2 -10 #arcLabel
-sa0 f9 type com.nova.devday.Data #txt
-sa0 f9 processCall sendMail:call(com.nova.devday.Email) #txt
-sa0 f9 doCall true #txt
-sa0 f9 requestActionDecl '<com.nova.devday.Email email> param;
-' #txt
-sa0 f9 responseActionDecl 'com.nova.devday.Data out;
-' #txt
-sa0 f9 responseMappingAction 'out=in;
-' #txt
-sa0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+sa0 f2 beanConfig '"{/emailSubject ""<%=in.email.subject%>""/emailFrom ""<%=in.email.from%>""/emailReplyTo """"/emailTo ""<%=in.email.to%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=in.email.content%>""/emailAttachments * }"' #txt
+sa0 f2 type com.nova.devday.Data #txt
+sa0 f2 timeout 0 #txt
+sa0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>sendMail</name>
-        <nameStyle>8,5,7
+        <name>Send Email</name>
+        <nameStyle>10,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-sa0 f9 712 42 112 44 -25 -8 #rect
-sa0 f9 @|CallSubIcon #fIcon
+sa0 f2 680 42 112 44 -32 -8 #rect
+sa0 f2 @|EMailIcon #fIcon
 sa0 f11 expr out #txt
-sa0 f11 824 64 969 64 #arcP
-sa0 f2 expr out #txt
-sa0 f2 472 64 712 64 #arcP
+sa0 f11 792 64 977 64 #arcP
+sa0 f12 actionDecl 'com.nova.devday.Data out;
+' #txt
+sa0 f12 actionTable 'out=in;
+' #txt
+sa0 f12 actionCode 'import nova.devday.MailSenderService;
+ MailSenderService mailSenderService = new MailSenderService();
+mailSenderService.buildEmailObject();' #txt
+sa0 f12 type com.nova.devday.Data #txt
+sa0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Init Email</name>
+        <nameStyle>10,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+sa0 f12 520 42 112 44 -25 -8 #rect
+sa0 f12 @|StepIcon #fIcon
+sa0 f13 expr out #txt
+sa0 f13 472 64 520 64 #arcP
+sa0 f9 expr out #txt
+sa0 f9 632 64 680 64 #arcP
 >Proto sa0 .type com.nova.devday.Data #txt
 >Proto sa0 .processKind NORMAL #txt
 >Proto sa0 0 0 32 24 18 0 #rect
@@ -142,7 +167,9 @@ sa0 f5 mainOut f6 tail #connect
 sa0 f6 head f8 in #connect
 sa0 f8 out f7 tail #connect
 sa0 f7 head f1 mainIn #connect
-sa0 f9 mainOut f11 tail #connect
+sa0 f2 mainOut f11 tail #connect
 sa0 f11 head f1 mainIn #connect
-sa0 f3 mainOut f2 tail #connect
-sa0 f2 head f9 mainIn #connect
+sa0 f3 mainOut f13 tail #connect
+sa0 f13 head f12 mainIn #connect
+sa0 f12 mainOut f9 tail #connect
+sa0 f9 head f2 mainIn #connect
