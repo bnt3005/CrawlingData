@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 16 09:04:37 ICT 2017]
+[>Created: Fri Nov 17 10:31:28 ICT 2017]
 15FBF01D998D2EFC 3.18 #module
 >Proto >Proto Collection #zClass
 sa0 startCrawlingData Big #zClass
@@ -50,16 +50,20 @@ sa0 f3 actionDecl 'com.nova.devday.Data out;
 ' #txt
 sa0 f3 actionTable 'out=in;
 ' #txt
-sa0 f3 actionCode 'import nova.devday.CrawlingService;
-CrawlingService crawlingService = new CrawlingService();
-crawlingService.crawlData();' #txt
+sa0 f3 actionCode 'import nova.devday.service.TestService;
+
+TestService testService = new TestService();
+testService.crawlData();
+
+//CrawlingService crawlingService = new CrawlingService();
+//crawlingService.crawlData();' #txt
 sa0 f3 type com.nova.devday.Data #txt
-sa0 f3 360 42 112 44 0 -8 #rect
+sa0 f3 344 42 112 44 0 -8 #rect
 sa0 f3 @|StepIcon #fIcon
 sa0 f4 expr out #txt
-sa0 f4 111 64 360 64 #arcP
+sa0 f4 111 64 344 64 #arcP
 sa0 f2 expr out #txt
-sa0 f2 472 64 597 64 #arcP
+sa0 f2 456 64 597 64 #arcP
 sa0 f5 outerBean "ch.ivyteam.ivy.process.eventstart.beans.AutoProcessStarterEventBean" #txt
 sa0 f5 beanConfig "3600" #txt
 sa0 f5 outLink eventLink.ivp #txt
@@ -77,7 +81,7 @@ sa0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-sa0 f8 400 208 32 32 -68 19 #rect
+sa0 f8 400 208 32 32 -69 19 #rect
 sa0 f8 @|AlternativeIcon #fIcon
 sa0 f10 expr in #txt
 sa0 f10 outCond nova.devday.CronJobService.createInstance().checkToRunCrawlingData() #txt
@@ -90,8 +94,8 @@ sa0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-sa0 f10 416 208 416 86 #arcP
-sa0 f10 0 0.5 -15 0 #arcLabel
+sa0 f10 415 209 400 86 #arcP
+sa0 f10 0 0.5 -15 2 #arcLabel
 sa0 f6 expr out #txt
 sa0 f6 111 224 400 224 #arcP
 sa0 f7 expr in #txt
