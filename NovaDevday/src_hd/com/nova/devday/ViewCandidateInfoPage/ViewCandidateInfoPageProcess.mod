@@ -1,5 +1,6 @@
 [Ivy]
-15FC28DA79159D3C 3.20 #module
+[>Created: Fri Nov 17 10:50:06 ICT 2017]
+15FC28DA79159D3C 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 ViewCandidateInfoPageProcess Big #zClass
 Vs0 RD #cInfo
@@ -55,7 +56,7 @@ import java.util.ArrayList;
 import com.nova.devday.CandidateInfo;
 
 CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
-in.candidateInfo = crawlingPersistentService.getCandidateInfoList();
+in.candidateInfos = crawlingPersistentService.getCandidateInfoList();
 ' #txt
 Vs0 f6 type com.nova.devday.ViewCandidateInfoPage.ViewCandidateInfoPageData #txt
 Vs0 f6 168 42 112 44 0 -8 #rect
@@ -91,7 +92,7 @@ Vs0 f5 actionTable 'out=in;
 Vs0 f5 actionCode 'import nova.devday.utils.ExportingExcelFileUtils;
 import nova.devday.service.ExportingExcelFileService;
 
-java.io.File excelFile = ExportingExcelFileService.buildExcelFile(in.candidateInfo);
+java.io.File excelFile = ExportingExcelFileService.buildExcelFile(in.candidateInfos);
 in.excelFileStreamContent = null;
 in.excelFileStreamContent = ExportingExcelFileUtils.generateStreamContent(excelFile);' #txt
 Vs0 f5 type com.nova.devday.ViewCandidateInfoPage.ViewCandidateInfoPageData #txt
