@@ -29,7 +29,7 @@ public class MailSenderService {
 		
 	}
 	
-	public String buildMailContent(){
+	private String buildMailContent(){
 		
 		
 		CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
