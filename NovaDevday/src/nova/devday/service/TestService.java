@@ -22,14 +22,12 @@ import nova.devday.persistent.CrawlingPersistentService;
 
 public class TestService {
 	private static final String SERVER_HOST = "https://employer.vietnamworks.com";
-	private static final String PASSWORD_VALUE = "Novatofintech";
+	private static final String PASSWORD_VALUE = Ivy.var().get("account_login_password");
 	private static final String PASSWORD_KEY = "_password";
-	private static final String USERNAME_VALUE = "hcmcnova@gmail.com";
+	private static final String USERNAME_VALUE = Ivy.var().get("account_login_email");
 	private static final String USERNAME_KEY = "_username";
 	private static final String LOGIN_FORM = SERVER_HOST + "/v2/login_check";
 	private static final String LOGIN_LINK = SERVER_HOST + "/v2/login";
-//	private static final String QUERY_STRING = SERVER_HOST + "/v2/resume/search?searchResume%5Bkeyword%5D=java&searchResume%5BjobLevelId%5D=&searchResume%5BlastModified%5D=3&btnResumeSearch=1&searchResume%5ByearExperience%5D=&searchResume%5Bnationality%5D=&searchResume%5Blanguage%5D=&searchResume%5BlanguageLevel%5D=&searchResume%5BageFrom%5D=&searchResume%5BageTo%5D=&searchResume%5BsalaryFrom%5D=&searchResume%5BsalaryTo%5D=&searchResume%5BgenderId%5D=";
-//	private static
 	static CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
 	
 
