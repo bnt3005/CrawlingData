@@ -35,13 +35,18 @@ public class MailSenderService {
 		CrawlingPersistentService crawlingPersistentService = new CrawlingPersistentService();
 		List<CandidateInfo> candidateInfos = crawlingPersistentService.getCandidateInfoList();
 		StringBuilder mailContent = new StringBuilder();
-       for (int i = 0; i < candidateInfos.size(); i++) {
+		
+       for (int i = 0; i < candidateInfos.size() && i < 10; i++) {
 		
 			CandidateInfo candidateInfo = candidateInfos.get(i);
-			mailContent.append("===============<br>");
-			mailContent.append("Candicate " ).append(candidateInfo.getMostRecentJob()).append("<br>");
-			//mailContent.append()
-			
+			mailContent.append("<tr  style='border: 1px solid black'>")
+						.append("<td  style='border: 1px solid black;'>")
+						.append(candidateInfo.getMostRecentJob())
+						.append("</td> <td  style='border: 1px solid black;'>")
+						.append(candidateInfo.getMinimumExpectedSalary())
+						.append("</td> <td  style='border: 1px solid black;'>")
+						.append(candidateInfo.getYearsOfExperience())
+						.append("</td></tr>");
 		}
        String emailCotent = EMAIL_CONTENT_TEMPLATE.replace("{content}", mailContent.toString());
 		return emailCotent;
