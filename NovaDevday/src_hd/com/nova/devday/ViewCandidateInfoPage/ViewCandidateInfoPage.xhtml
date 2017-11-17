@@ -30,7 +30,7 @@
 						<h:outputText value="#{rowIndex + 1}" />
 					</p:column>
 					<p:column style="width: 50px" headerText="image" >
-						<p:graphicImage style="width: 70px" value="#{candidate.imageLink}"></p:graphicImage>
+						<p:graphicImage style="width: 50px" value="#{candidate.imageLink}"></p:graphicImage>
 					</p:column>
 					<p:column headerText="Current Position" filterBy="#{candidate.mostRecentJob}" filterMatchMode="contains" >
 						<h:outputText id="currentPosition" value="#{candidate.mostRecentJob}" />
