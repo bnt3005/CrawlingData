@@ -1,8 +1,10 @@
 package nova.devday;
 
+
+import com.nova.devday.CrawlingEmail;
+
 import ch.ivyteam.ivy.environment.Ivy;
 
-import com.nova.devday.Email;
 
 public class MailSenderService {
 	
@@ -11,13 +13,15 @@ public class MailSenderService {
 	private String EMAIL_SUBJECT = Ivy.cms().co("/nova/crawlingEmailSubject");
 	private String EMAIL_CONTENT = Ivy.cms().co("/nova/emailContent");
 	
-	public void buildEmailObject()
+	public CrawlingEmail buildEmailObject()
 	{
-		Email email = new Email();
+		CrawlingEmail email = new CrawlingEmail();
 		email.setSubject(EMAIL_SUBJECT);
 		email.setFrom(SENDER_MAIL);
 		email.setTo(RECEIVER_MAIL);
 		email.setContent(EMAIL_CONTENT);
+		return email;
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-Email #class
+CrawlingEmail #class
 com.nova.devday #namespace
 from String #field
 from PERSISTENT #fieldModifier
