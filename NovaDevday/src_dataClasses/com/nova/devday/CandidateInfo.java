@@ -7,7 +7,7 @@ package com.nova.devday;
 public class CandidateInfo extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -4975364392889066037L;
+  private static final long serialVersionUID = 6852052311502394400L;
 
   private java.lang.String candidateId;
 
@@ -367,6 +367,26 @@ public class CandidateInfo extends ch.ivyteam.ivy.scripting.objects.CompositeObj
   public void setImageLink(java.lang.String _imageLink)
   {
     imageLink = _imageLink;
+  }
+
+  private java.lang.Boolean hasBeenNotify;
+
+  /**
+   * Gets the field hasBeenNotify.
+   * @return the value of the field hasBeenNotify; may be null.
+   */
+  public java.lang.Boolean getHasBeenNotify()
+  {
+    return hasBeenNotify;
+  }
+
+  /**
+   * Sets the field hasBeenNotify.
+   * @param _hasBeenNotify the new value of the field hasBeenNotify.
+   */
+  public void setHasBeenNotify(java.lang.Boolean _hasBeenNotify)
+  {
+    hasBeenNotify = _hasBeenNotify;
   }
 
 }

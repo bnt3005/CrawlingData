@@ -36,3 +36,5 @@ updatedDate java.util.Date #field
 updatedDate PERSISTENT #fieldModifier
 imageLink String #field
 imageLink PERSISTENT #fieldModifier
+hasBeenNotify Boolean #field
+hasBeenNotify PERSISTENT #fieldModifier

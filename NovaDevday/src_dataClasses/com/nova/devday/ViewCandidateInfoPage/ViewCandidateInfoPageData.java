@@ -7,27 +7,7 @@ package com.nova.devday.ViewCandidateInfoPage;
 public class ViewCandidateInfoPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 5287595374351224208L;
-
-  private java.util.List<com.nova.devday.CandidateInfo> candidateInfos;
-
-  /**
-   * Gets the field candidateInfos.
-   * @return the value of the field candidateInfos; may be null.
-   */
-  public java.util.List<com.nova.devday.CandidateInfo> getCandidateInfos()
-  {
-    return candidateInfos;
-  }
-
-  /**
-   * Sets the field candidateInfos.
-   * @param _candidateInfos the new value of the field candidateInfos.
-   */
-  public void setCandidateInfos(java.util.List<com.nova.devday.CandidateInfo> _candidateInfos)
-  {
-    candidateInfos = _candidateInfos;
-  }
+  private static final long serialVersionUID = 7758208333541489845L;
 
   private org.primefaces.model.StreamedContent excelFileStreamContent;
 
@@ -47,6 +27,26 @@ public class ViewCandidateInfoPageData extends ch.ivyteam.ivy.scripting.objects.
   public void setExcelFileStreamContent(org.primefaces.model.StreamedContent _excelFileStreamContent)
   {
     excelFileStreamContent = _excelFileStreamContent;
+  }
+
+  private java.util.List<com.nova.devday.CandidateInfo> candidateInfo;
+
+  /**
+   * Gets the field candidateInfo.
+   * @return the value of the field candidateInfo; may be null.
+   */
+  public java.util.List<com.nova.devday.CandidateInfo> getCandidateInfo()
+  {
+    return candidateInfo;
+  }
+
+  /**
+   * Sets the field candidateInfo.
+   * @param _candidateInfo the new value of the field candidateInfo.
+   */
+  public void setCandidateInfo(java.util.List<com.nova.devday.CandidateInfo> _candidateInfo)
+  {
+    candidateInfo = _candidateInfo;
   }
 
 }
