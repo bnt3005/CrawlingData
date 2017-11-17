@@ -5,7 +5,23 @@ Hi HR Team
 Here are some candidates just update CV:
 </P>
 <P>
-<B>{content}</B> 
+<table>
+<tr>
+<td>
+	Current position
+</td>
+
+<td>
+	Expected salary
+</td>
+
+<td>
+	
+</td>
+	Years of experience
+</tr>
+{content}
+</table> 
 </P>
 <P>
 Please click to this <A href="http://localhost:8081/ivy/pro/designer/NovaDevday/15FC2FE31081B441/startViewInfo.ivp">link</A> for more details. 
